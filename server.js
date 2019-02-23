@@ -44,9 +44,7 @@ app.get("/scrape", function(req, res) {
     var $ = cheerio.load(response.data);
     // For each element with a "title" class
     $(".headline").each(function(i, element) {
-      // Save the text and href of each link enclosed in the current element
-    //   var title = $(element).children("a").text();
-    //   var link = $(element).children("a").attr("href");
+
     var result = {
 
         title: $(element).children("a").text(),
@@ -71,6 +69,12 @@ app.get("/scrape", function(req, res) {
   });
 });
 
+app.get("/", function(req, res) {
+    db.Article.find({})
+    .then(function(dbArticle) {
+        res.render("index", {articles: dbArticle});
+    })
+})
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
   // Grab every document in the Articles collection

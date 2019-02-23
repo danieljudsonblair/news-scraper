@@ -1,0 +1,21 @@
+
+<div id="title">Welcome to the Onion Peeler!</div>
+<div id="subtitle">Your home for real fake news</div>
+<br>
+<hr>
+<br>
+<div id="noteinst">Click on a title to add/view/change note</div>
+<div id="wrapper">
+            <div id="articles">
+    {{#each articles}}
+
+        
+
+            <p data-id={{this._id}}>{{this.title}}</p>
+            <a href={{this.link}} target="_blank">{{this.link}}</a>
+            <hr>
+    {{/each}}
+            </div>
+            <div id="notes">
+            </div>
+</div>
