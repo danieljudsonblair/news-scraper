@@ -44,3 +44,7 @@ textarea {
     text-align: center;
     font-style: italic;
 }
+#btnhldr {
+  text-align: right;
+  padding-right: 2px;
+}

@@ -4,7 +4,7 @@
 <br>
 <hr>
 <br>
-<div id="noteinst">Click on a title to add/view/change note</div>
+<br>
 <div id="wrapper">
             <div id="articles">
     {{#each articles}}
@@ -13,6 +13,11 @@
 
             <p data-id={{this._id}}>{{this.title}}</p>
             <a href={{this.link}} target="_blank">{{this.link}}</a>
+            <br>
+            <div id="btnhldr">
+                <button type="button" class="notebtn" data-id={{this._id}}>View/Add Note</button>
+            
+            </div> 
             <hr>
     {{/each}}
             </div>
