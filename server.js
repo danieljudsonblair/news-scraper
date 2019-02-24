@@ -32,11 +32,12 @@ var exphbs = require("express-handlebars");
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/unit18Populater", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/scraper", { useNewUrlParser: true });
 
 // Routes
 
 // A GET route for scraping the echoJS website
+
 app.get("/scrape", function(req, res) {
   // First, we grab the body of the html with axios
   axios.get("https://theonion.com/").then(function(response) {
@@ -57,6 +58,10 @@ app.get("/scrape", function(req, res) {
         .then(function(dbArticle) {
           // View the added result in the console
           console.log(dbArticle);
+          db.Article.find({})
+          .then(function(dbArticle) {
+              res.render("index", {articles: dbArticle});
+          })
         })
         .catch(function(err) {
           // If an error occurred, log it
@@ -68,6 +73,7 @@ app.get("/scrape", function(req, res) {
     res.send("Scrape Complete");
   });
 });
+
 
 app.get("/", function(req, res) {
     db.Article.find({})
