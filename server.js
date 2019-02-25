@@ -82,6 +82,9 @@ app.get("/", function(req, res) {
     .then(function(dbArticle) {
         res.render("index", {articles: dbArticle});
     })
+    .catch(function(err) {
+        res.json(err);
+    })
 })
 // Route for getting all Articles from the db
 app.get("/articles", function(req, res) {
