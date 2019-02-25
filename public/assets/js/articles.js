@@ -1,5 +1,14 @@
 
-
+$(document).on("click", ".peeler", function () {
+    $.ajax({
+        method: "GET",
+        url: "/scrape"
+    })
+    .then(function(data){
+        console.log(data)
+        location.reload();
+    })
+})
 // Whenever someone clicks a p tag
 $(document).on("click", ".notebtn", function () {
     // Empty the notes from the note section
