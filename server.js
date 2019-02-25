@@ -33,6 +33,7 @@ app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 // Connect to the Mongo DB
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/scraper";
+console.log(MoNGODB_URI);
 
 mongoose.connect(MONGODB_URI);
 
